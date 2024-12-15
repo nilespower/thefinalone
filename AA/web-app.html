@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Apps by Niles Herrod</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: red;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px #fff;
+        }
+
+        .app-container {
+            width: 80%;
+            max-width: 800px;
+            background: linear-gradient(135deg, #333, red);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .app {
+            margin-bottom: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #333;
+            color: red;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #111;
+            color: white;
+        }
+
+        .snake-game {
+            border: 1px solid #ddd;
+            display: grid;
+            grid-template-columns: repeat(20, 20px);
+            grid-template-rows: repeat(20, 20px);
+            margin-top: 10px;
+            width: 400px;
+            height: 400px;
+        }
+
+        .cell {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #eee;
+            background-color: #fff;
+        }
+
+        .snake {
+            background-color: #4caf50;
+        }
+
+        .food {
+            background-color: #f44336;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Vegas Web Apps by Niles Herrod</h1>
+    <div class="app-container">
+        <!-- Riddle Generator -->
+        <div class="app" id="riddle">
+            <h2>Riddle Generator</h2>
+            <button onclick="generateRiddle()">Get Riddle</button>
+            <button onclick="showRiddleAnswer()" disabled id="riddleAnswerButton">Show Answer</button>
+            <div class="output" id="riddleOutput">Your riddle will appear here.</div>
+        </div>
+
+        <!-- Number Guessing Game -->
+        <div class="app" id="number-guess">
+            <h2>Number Guessing Game</h2>
+            <p>Guess a number between 1 and 100:</p>
+            <input type="number" id="guessInput">
+            <button onclick="checkGuess()">Submit</button>
+            <div class="output" id="guessOutput">Start guessing!</div>
+        </div>
+
+        <!-- Snake Game -->
+        <div class="app" id="snake">
+            <h2>Snake Game</h2>
+            <div class="snake-game" id="snakeGame"></div>
+            <button onclick="startSnakeGame()">Start Snake Game</button>
+        </div>
+
+        <!-- Wordle Clone -->
+        <div class="app" id="wordle">
+            <h2>Wordle Clone</h2>
+            <input type="text" id="wordleInput" maxlength="5">
+            <button onclick="submitWordleGuess()">Submit</button>
+            <div class="output" id="wordleOutput">Your word feedback will appear here.</div>
+        </div>
+
+        <!-- Joke Generator -->
+        <div class="app" id="joke">
+            <h2>Joke Generator</h2>
+            <button onclick="generateJoke()">Get Joke</button>
+            <button onclick="showJokeAnswer()" disabled id="jokeAnswerButton">Show Punchline</button>
+            <div class="output" id="jokeOutput">Your joke will appear here.</div>
+        </div>
+    </div>
+
+    <script>
+        // Riddle Generator
+        let riddleAnswer = "";
+        function generateRiddle() {
+            const riddles = [
+                { question: "What has to be broken before you can use it?", answer: "An egg." },
+                { question: "I’m tall when I’m young, and I’m short when I’m old. What am I?", answer: "A candle." },
+                { question: "What month of the year has 28 days?", answer: "All of them." },
+            ];
+            const riddle = riddles[Math.floor(Math.random() * riddles.length)];
+            riddleAnswer = riddle.answer;
+            document.getElementById("riddleOutput").innerText = riddle.question;
+            document.getElementById("riddleAnswerButton").disabled = false;
+        }
+        function showRiddleAnswer() {
+            document.getElementById("riddleOutput").innerText += `\nAnswer: ${riddleAnswer}`;
+            document.getElementById("riddleAnswerButton").disabled = true;
+        }
+
+        // Number Guessing Game
+        let targetNumber = Math.floor(Math.random() * 100) + 1;
+        function checkGuess() {
+            const guess = parseInt(document.getElementById("guessInput").value);
+            const output = document.getElementById("guessOutput");
+            if (guess === targetNumber) {
+                output.innerText = "Correct! You guessed the number.";
+                targetNumber = Math.floor(Math.random() * 100) + 1; // Reset
+            } else if (guess < targetNumber) {
+                output.innerText = "Too low! Try again.";
+            } else {
+                output.innerText = "Too high! Try again.";
+            }
+        }
+
+        // Snake Game
+        const snakeGame = document.getElementById("snakeGame");
+        const rows = 20;
+        const cols = 20;
+        const cells = [];
+        let snake = [{ x: 10, y: 10 }];
+        let food = { x: 5, y: 5 };
+        let direction = "ArrowRight";
+        let gameInterval;
+
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                snakeGame.appendChild(cell);
+                cells.push(cell);
+            }
+        }
+
+        function drawGame() {
+            cells.forEach(cell => cell.className = "cell");
+            snake.forEach(segment => {
+                const index = segment.y * cols + segment.x;
+                cells[index].classList.add("snake");
+            });
+            const foodIndex = food.y * cols + food.x;
+            cells[foodIndex].classList.add("food");
+        }
+
+        function moveSnake() {
+            const head = { ...snake[0] };
+            if (direction === "ArrowUp") head.y -= 1;
+            if (direction === "ArrowDown") head.y += 1;
+            if (direction === "ArrowLeft") head.x -= 1;
+            if (direction === "ArrowRight") head.x += 1;
+
+            if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows ||
+                snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                clearInterval(gameInterval);
+                alert("Game Over!");
+                return;
+            }
+
+            snake.unshift(head);
+            if (head.x === food.x && head.y === food.y) {
+                food = {
+                    x: Math.floor(Math.random() * cols),
+                    y: Math.floor(Math.random() * rows),
+                };
+            } else {
+                snake.pop();
+            }
+
+            drawGame();
+        }
+
+        function startSnakeGame() {
+            snake = [{ x: 10, y: 10 }];
+            food = { x: 5, y: 5 };
+            direction = "ArrowRight";
+            drawGame();
+            clearInterval(gameInterval);
+            gameInterval = setInterval(moveSnake, 200);
+        }
+
+        document.addEventListener("keydown", e => {
+            if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+                direction = e.key;
+            }
+        });
+
+        // Wordle Clone
+        const wordleAnswer = "PLANT";
+        function submitWordleGuess() {
+            const guess = document.getElementById("wordleInput").value.toUpperCase();
+            if (guess.length !== 5) {
+                document.getElementById("wordleOutput").innerText = "Please enter a 5-letter word.";
+                return;
+            }
+            let feedback = "";
+            for (let i = 0; i < 5; i++) {
+                if (guess[i] === wordleAnswer[i]) feedback += guess[i] + "(Green) ";
+                else if (wordleAnswer.includes(guess[i])) feedback += guess[i] + "(Yellow) ";
+                else feedback += guess[i] + "(Gray) ";
+            }
+            document.getElementById("wordleOutput").innerText = feedback.trim();
+        }
+
+        // Joke Generator
+        let jokePunchline = "";
+        function generateJoke() {
+            const jokes = [
+                { setup: "Why don’t skeletons fight each other?", punchline: "They don’t have the guts." },
+                { setup: "What do you call fake spaghetti?", punchline: "An impasta!" },
+                { setup: "Why couldn’t the bicycle stand up by itself?", punchline: "It was two tired." }
+            ];
+            const joke = jokes[Math.floor(Math.random() * jokes.length)];
+            jokePunchline = joke.punchline;
+            document.getElementById("jokeOutput").innerText = joke.setup;
+            document.getElementById("jokeAnswerButton").disabled = false;
+        }
+        function showJokeAnswer() {
+            document.getElementById("jokeOutput").innerText += `\nPunchline: ${jokePunchline}`;
+            document.getElementById("jokeAnswerButton").disabled = true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Retro Blog - Inspired by MySpace</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.8rem;
+        }
+
+        nav {
+            background-color: #ffcc00;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #f8f8f8;
+            padding: 15px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        .content {
+            width: 70%;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .post {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fdfdfd;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .post h3 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .post img {
+            width: 100%;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .post p {
+            line-height: 1.6;
+        }
+
+        .post .hashtags {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* New Segment for Designs */
+        .design-segment {
+            margin-top: 30px;
+            background-color: #eef2f7;
+            padding: 15px;
+            border: 2px solid #003366;
+        }
+
+        .design-segment h2 {
+            color: #003366;
+            text-align: center;
+        }
+
+        .design-card {
+            background-color: white;
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .design-card img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            filter: sepia(30%) contrast(85%) brightness(90%);
+        }
+
+        .design-card p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Sidebar Style */
+        .sidebar h3 {
+            color: #003366;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 5px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover {
+            color: #ff8800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        My Retro Blog - Inspired by MySpace
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#dad-life">Dad Life</a>
+        <a href="#sports">Sports</a>
+        <a href="#finance">Finance</a>
+        <a href="#designs">Favorite Designs</a>
+        <a href="#photography">Photography</a>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#dad-life">Life as a Dad</a></li>
+                <li><a href="#sports">Sports Journey</a></li>
+                <li><a href="#finance">Finance Tips</a></li>
+                <li><a href="#designs">Home Designs</a></li>
+                <li><a href="#photography">Photography</a></li>
+            </ul>
+        </div>
+
+        <!-- Blog Content -->
+        <div class="content">
+            <!-- Post 1 -->
+            <div class="post" id="dad-life">
+                <h3>Life as a Dad</h3>
+                <p>
+                    Being a dad is full of joy, laughter, and occasional chaos. There’s nothing quite like the feeling 
+                    of your child running up to you for a hug after a long day. It’s these small, everyday moments that 
+                    make fatherhood so rewarding.
+                </p>
+                <p>
+                    One of the most challenging aspects is finding balance. I want to be there for every milestone, 
+                    from the first words to the first soccer game, while also pursuing my own goals. But what I’ve learned 
+                    is that being present in the moment, even if it’s just 10 minutes of quality time, makes a huge difference.
+                </p>
+                <p>
+                    Teaching values like kindness, resilience, and gratitude is something I strive for every day. At the 
+                    same time, my kids teach me to see the world with fresh eyes and remind me not to take life too seriously. 
+                    I wouldn’t trade this journey for anything.
+                </p>
+            </div>
+
+            <!-- New Design Segment -->
+            <div class="design-segment" id="designs">
+                <h2>My Favorite Home & Airbnb Designs</h2>
+                <div class="design-card">
+                   Modern Home Design
+                    <p>Modern minimalistic design with open spaces, natural light, and warm wood tones.</p>
+                </div>
+                <div class="design-card">
+                    Cozy Airbnb
+                    <p>A cozy Airbnb retreat with neutral colors, vintage decor, and rustic charm.</p>
+                </div>
+                <div class="design-card">
+                   Retro Design
+                    <p>Retro-inspired design with bold colors, funky furniture, and nostalgic accents.</p>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post" id="sports">
+                <h3>Sports Journey</h3>
+                <p>
+                    Sports have been a cornerstone in my life, shaping my mindset and teaching me valuable lessons. 
+                    Football was where I first learned the importance of teamwork and pushing through challenges, no matter 
+                    how tough they seemed. The camaraderie and discipline built during those years are lessons I carry with 
+                    me even today.
+                </p>
+                <p>
+                    Running track introduced me to the idea of competing against myself. Every race was an opportunity 
+                    to set a new personal best. I learned how to pace myself, strategize, and focus on incremental progress. 
+                    These lessons have carried over into my daily life, reminding me to celebrate small victories.
+                </p>
+                <p>
+                    Golf, on the other hand, has been a newer but deeply fulfilling journey. It’s a sport that requires 
+                    immense patience, focus, and self-reflection. Every round presents its own set of challenges, and it 
+                    feels like a metaphor for life: sometimes you hit the perfect shot, and other times you’re in the bunker. 
+                    Either way, you learn, adapt, and keep going.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-images">
+        
+        </div>
+        &copy; 2024 My Retro Blog | Sharing stories weekly
+    </footer>
+</body>
+</html>

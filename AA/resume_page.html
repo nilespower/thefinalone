@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Niles Herrod</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf5e6; /* Warm, light cream background */
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            background-color: #f77f00;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 1px 1px 3px #333;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+
+        h2 {
+            color: #f77f00;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #f77f00;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            background-color: #ffdd57;
+            color: #222;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .performance, .skills {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .bar {
+            background-color: #f77f00;
+            width: 20%;
+            height: 100px;
+            display: inline-block;
+            margin-right: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #f77f00;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Niles Herrod - Resume
+    </header>
+
+    <div class="container">
+        <!-- Education -->
+        <div class="section" id="education">
+            <h2>Education</h2>
+            <ul>
+                <li><span class="highlight">Brigham Young University</span> – Marriott School of Management</li>
+                <li>Bachelor of Science in Finance & Bachelor of Arts in Russian Language</li>
+                <li>Graduation: <span class="highlight">Spring 2025</span></li>
+                <li>Clubs: Finance Society, Slavic Club, Marketing Association</li>
+            </ul>
+        </div>
+
+        <!-- Experience -->
+        <div class="section" id="experience">
+            <h2>Professional Experience</h2>
+            <ul>
+                <li>
+                    <span class="highlight">Unity School for Ukraine</span> <br>
+                    Head of Marketing & Translator | <i>Nov 2022 – Aug 2023</i><br>
+                    - Created content reaching large audiences.<br>
+                    - Assisted with fundraising and community events.
+                </li>
+                <li>
+                    <span class="highlight">Chris Herrod for US Congress</span><br>
+                    Head of Finance | <i>Mar 2022 – Jun 2022</i><br>
+                    - Managed campaign finance and operations.<br>
+                    - Coordinated field events and fundraising efforts.
+                </li>
+                <li>
+                    <span class="highlight">Future Home Power</span><br>
+                    Assistant Sales Manager | <i>Apr 2021 – Sep 2021</i><br>
+                    - Trained representatives and led successful team efforts.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Skills -->
+        <div class="section" id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="bar" style="height: 80px;"></div>
+                <div class="bar" style="height: 60px;"></div>
+                <div class="bar" style="height: 90px;"></div>
+                <div class="bar" style="height: 70px;"></div>
+            </div>
+            <p style="text-align:center;">Skills include Russian fluency, leadership, project management, and data analysis.</p>
+        </div>
+
+        <!-- Volunteer Service -->
+        <div class="section" id="volunteer">
+            <h2>Volunteer Experience</h2>
+            <ul>
+                <li>
+                    <span class="highlight">Dari Projects for Ukraine</span> <br>
+                    Co-Founder | <i>Feb 2022 – Present</i><br>
+                    - Organized large fundraising events to support refugees.
+                </li>
+                <li>
+                    <span class="highlight">4-H Mentoring</span> <br>
+                    Youth Mentor | <i>Jun 2022 – Present</i><br>
+                    - Provided mentorship and support to local youth programs.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="resume-header">
+        <div class="profile-pic-container">
+            <img src="images/my-photo.jpg" alt="Niles Herrod" class="profile-pic">
+        </div>
+        <h1>Niles Herrod</h1>
+        <p>Your tagline or brief description goes here.</p>
+    </header>
+    
+    <footer>
+        &copy; 2024 Niles Herrod
+    </footer>
+</body>
+</html>

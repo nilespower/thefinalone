@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>стиль - Retro Vibes</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: black;
+            color: lime;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes neon-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 5px lime, 0 0 10px lime, 0 0 20px lime, 0 0 40px lime;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        header {
+            background: black;
+            border-bottom: 4px solid lime;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: lime;
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: lime;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav ul li a:hover {
+            text-shadow: 0 0 5px lime;
+        }
+
+        /* Sections */
+        section {
+            margin: 30px auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            max-width: 800px;
+            border: 2px solid lime;
+            border-radius: 10px;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+
+        h2 {
+            color: lime;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Unordered and Ordered List */
+        ol {
+            color: lime;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        /* Pixel Art */
+        .pixel-art {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 2px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+
+        .pixel-art div {
+            width: 20px;
+            height: 20px;
+            background: lime;
+        }
+
+        .pixel-art .empty {
+            background: transparent;
+        }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: lime;
+            padding: 10px;
+            font-size: 0.8em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Embedded Video */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+        }
+
+        iframe {
+            border: 2px solid lime;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            section {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>стиль - Retro Vibes</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#lists">Lists</a></li>
+                <li><a href="#pixel">Pixel Art</a></li>
+                <li><a href="#video">Video</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Embracing Nostalgia</h2>
+        <p>Retro vibes bring back a simpler time. A time of neon lights, pixel art, and infinite possibilities. Whether it's music, art, or technology, retro is timeless.</p>
+        <img src="images/retrovibes.jpg" alt="Retro Vibes" style="width: 50px; height: 50px;">
+    </section>    
+
+    <!-- Lists Section -->
+    <section id="lists">
+        <h2>Things We Love</h2>
+        <ol>
+            <li>Retro Games
+                <ul>
+                    <li>Pac-Man</li>
+                    <li>Space Invaders</li>
+                    <li>Galaga</li>
+                </ul>
+            </li>
+            <li>Retro Tech
+                <ul>
+                    <li>CRT Monitors</li>
+                    <li>Floppy Disks</li>
+                    <li>Walkmans</li>
+                </ul>
+            </li>
+            <li>Retro Music
+                <ul>
+                    <li>Synthwave</li>
+                    <li>Classic Rock</li>
+                    <li>80s Pop</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <!-- Pixel Art -->
+    <section id="pixel">
+        <h2>Custom Pixel Art</h2>
+        <div class="pixel-art">
+            <div class="empty"></div><div></div><div></div><div class="empty"></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div class="empty"></div><div></div><div></div><div class="empty"></div>
+        </div>
+    </section>
+
+    <!-- Embedded Video -->
+    <section id="video-section">
+        <h2>Time Is Now</h2>
+        <p>Watch this inspirational video and take action now.</p>
+        <video controls width="640" height="360">
+            <source src="timeisnow.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>    
+
+    <section id="webapp-section">
+        <h2>Try Your Luck!</h2>
+        <p>Click the button below to check out the Web App and try your luck!</p>
+        <a href="web-app.html" class="casino-button">Go to Web App</a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 стиль | A tribute to retro vibes</p>
+    </footer>
+</body>
+</html>
